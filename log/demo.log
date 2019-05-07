@@ -1,0 +1,27 @@
+2019-05-07 10:15:30,798 INFO (StartupInfoLogger.java:50)- Starting GaoApplication on DESKTOP-BVTQLGF with PID 14936 (started by 高大程 in C:\Users\高大程\Desktop\gao)
+2019-05-07 10:15:30,810 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-07 10:15:30,812 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 10:16:46,035 INFO (StartupInfoLogger.java:50)- Starting GaoApplication on DESKTOP-BVTQLGF with PID 14220 (started by 高大程 in C:\Users\高大程\Desktop\gao)
+2019-05-07 10:16:46,057 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-07 10:16:46,063 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 10:16:50,944 INFO (StartupInfoLogger.java:59)- Started GaoApplication in 6.195 seconds (JVM running for 10.365)
+2019-05-07 10:44:01,867 INFO (StartupInfoLogger.java:50)- Starting GaoApplication on DESKTOP-BVTQLGF with PID 14220 (started by 高大程 in C:\Users\高大程\Desktop\gao)
+2019-05-07 10:44:01,868 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-07 10:44:01,869 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 10:44:09,167 INFO (StartupInfoLogger.java:59)- Started GaoApplication in 7.507 seconds (JVM running for 1648.59)
+2019-05-07 10:52:06,981 INFO (StartupInfoLogger.java:50)- Starting GaoApplication on DESKTOP-BVTQLGF with PID 14220 (started by 高大程 in C:\Users\高大程\Desktop\gao)
+2019-05-07 10:52:06,983 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-07 10:52:06,983 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 10:52:10,911 INFO (StartupInfoLogger.java:59)- Started GaoApplication in 4.395 seconds (JVM running for 2130.333)
+2019-05-07 10:55:33,346 INFO (StartupInfoLogger.java:50)- Starting GaoApplication on DESKTOP-BVTQLGF with PID 12884 (started by 高大程 in C:\Users\高大程\Desktop\gao)
+2019-05-07 10:55:33,353 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-07 10:55:33,355 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 10:55:39,337 INFO (StartupInfoLogger.java:59)- Started GaoApplication in 7.406 seconds (JVM running for 11.817)
+2019-05-07 11:00:54,149 INFO (StartupInfoLogger.java:50)- Starting GaoApplication on DESKTOP-BVTQLGF with PID 12884 (started by 高大程 in C:\Users\高大程\Desktop\gao)
+2019-05-07 11:00:54,149 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-07 11:00:54,150 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 11:00:58,517 INFO (StartupInfoLogger.java:59)- Started GaoApplication in 4.534 seconds (JVM running for 330.996)
+2019-05-07 11:04:54,738 INFO (StartupInfoLogger.java:50)- Starting GaoApplication on DESKTOP-BVTQLGF with PID 10096 (started by 高大程 in C:\Users\高大程\Desktop\gao)
+2019-05-07 11:04:54,747 DEBUG (StartupInfoLogger.java:53)- Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-07 11:04:54,748 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 11:05:00,403 INFO (StartupInfoLogger.java:59)- Started GaoApplication in 7.146 seconds (JVM running for 11.568)

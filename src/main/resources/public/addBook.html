@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/js/jquery/jquery.form.js"></script>
+    <script src="/js/moment/moment.min.js"></script>
+    <script src="/js/numeral/numeral.min.js"></script>
+    <script src="/js/numeral/chs.min.js"></script>
+    <script src="/js/common/base.js"></script>
+    <script src="/js/common/normal.js"></script>
+    <script>
+
+        function out() {
+            location.href = "welcome.html"
+        }
+
+        function add() {
+            $.post("addBooks",$("#ff").serialize(),function (result) {
+                var obj = $.dealJSONObj(result);
+                if (!obj.code) {
+                    alert(obj.msg);
+                    location.href = "welcome.html"
+                } else {
+                    alert(obj.msg);
+                }
+
+            })
+        }
+
+    </script>
+</head>
+<body>
+<div align="center" style="margin-top: 200px">
+    <form id="ff">
+        <table border="1" style="width: 400px">
+            <thead>
+            <tr style="background: lightyellow;font-size: 30px">
+                <th colspan="2">增加图书</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>书名
+                    <span style="color: red">(*)</span></td>
+                <td>
+                    <input type="text" id="name" name="name">
+                </td>
+            </tr>
+            <tr>
+                <td>作者
+                    <span style="color: red">(*)</span></td>
+                <td>
+                    <input type="text" id="author" name="author">
+                </td>
+            </tr>
+            <tr>
+                <td>出版社
+                    <span style="color: red">(*)</span></td>
+                <td>
+                    <input type="text" id="publish" name="publish">
+                </td>
+            </tr>
+            <tr>
+                <td>出版日期
+                    <span style="color: red">(*)</span></td>
+                <td>
+                    <input type="text" id="pulishdate" name="pulishdate">(yyyy-MM-dd)
+                </td>
+            </tr>
+            <tr>
+                <td>页数</td>
+                <td>
+                    <input type="text" id="page" name="page">
+                </td>
+            </tr>
+            <tr>
+                <td>价格</td>
+                <td>
+                    <input type="text" id="price" name="price">
+                </td>
+            </tr>
+            <tr>
+                <td>内容摘要</td>
+                <td>
+                    <textarea type="text" id="content" name="content"></textarea>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="提交" onclick="add()">
+                    <input type="button" value="返回" onclick="out()">
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

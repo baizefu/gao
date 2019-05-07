@@ -1,5 +1,9 @@
 package com.bdqn.dao;
 
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
 import com.bdqn.entity.Book;
 
 public interface BookMapper {
@@ -14,4 +18,8 @@ public interface BookMapper {
     int updateByPrimaryKeySelective(Book record);
 
     int updateByPrimaryKey(Book record);
+
+    List<Book> findAll();
+
+
 }

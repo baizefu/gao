@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/js/jquery/jquery.form.js"></script>
+    <script src="/js/moment/moment.min.js"></script>
+    <script src="/js/numeral/numeral.min.js"></script>
+    <script src="/js/numeral/chs.min.js"></script>
+    <script src="/js/common/base.js"></script>
+    <script src="/js/common/normal.js"></script>
+    <script>
+        var pageNum = 1
+        var pageSize = 2
+        $(function () {
+            receive()
+            tab()
+        })
+
+        function receive() {
+            var usertype = $.getHrefParam("usertype");
+            $("#usertype").html(exchange(usertype))
+        }
+        function exchange(usertype) {
+            switch (usertype) {
+                case "0":
+                    return "普通用户";
+                case "1":
+                    return "图书系统管理员"
+            }
+        }
+
+        function tab() {
+            $.post("allBooks", {pageNum:pageNum,pageSize:pageSize}, function (result) {
+                var obj = $.dealJSONObj(result);
+                console.log(obj)
+                // language=HTML
+                var temp = '<tr>\n    <td style="display: none">{0}</td>\n    <td>{1}</td>\n    <td>{2}</td>\n    <td>{3}</td>\n    <td>{4}</td>\n    <td>{5}</td>\n    <td>{6}</td>\n    <td>{7}</td>\n    <td>\n        <a href="javascript:void(0)" onclick="update({0})">修改</a>\n        <a href="javascript:void(0)" onclick="delThis({0})">删除</a>\n    </td>\n</tr>'
+                var data = "";
+                $.each(obj.data.list,function (k,v) {
+                    data += temp.formatStr(
+                        v.id,
+                        v.name,
+                        v.author,
+                        v.publish,
+                        moment(v.pulishdate).format("YYYY-MM-DD"),
+                        v.page,
+                        v.price,
+                        v.content
+                    )
+                })
+                $("#tb").empty().html(data);
+
+                // language=HTML
+                var emp = "<tr>\n    <td colspan=\'8\'>\n        <input type=\'button\' value=\'新增图书\' onclick=\'add()\'>\n        <span>每页{1}条</span>\n        <span>第{2}页/第{3}页</span>\n        <span>共{0}条数据</span>\n        <a href=\'javascript:void(0)\' onclick=\'skip({4})\'>首页</a>\n        <a href=\'javascript:void(0)\' onclick=\'skip({5})\'>上一页</a>\n        <a href=\'javascript:void(0)\' onclick=\'skip({6})\'>下一页</a>\n        <a href=\'javascript:void(0)\' onclick=\'skip({7})\'>末页</a>\n        <span>跳转到\n            <input type=\'text\' size=\'1\' id=\'page\'>页\n            <input type=\'button\' value=\'Go\' onclick=\'skip({8})\'>\n        </span>\n    </td>\n</tr>"
+                var pagination = emp.formatStr(
+                    obj.data.total,
+                    obj.data.pageSize,
+                    obj.data.pageNum,
+                    obj.data.pages,
+                    1,
+                    obj.data.hasPreviousPage ? obj.data.pageNum - 1 :1,
+                    obj.data.hasNextPage ? obj.data.pageNum + 1 : obj.data.pages,
+                    obj.data.pages,
+                    $("#page").val()
+                )
+                $("#tf").empty().html(pagination);
+            })
+        }
+        function skip(val) {
+            console.log(val);
+                pageNum = val;
+                tab();
+        }
+
+
+        function update(id) {
+            location.href = "updBook.html?id="+id;
+        }
+
+        function add() {
+            location.href = "addBook.html"
+        }
+
+        function delThis(id) {
+            var flag = confirm("你确认删除这条信息么");
+            if (flag){
+                $.post("delThis",{id:id},function (result) {
+                    var obj = $.dealJSONObj(result)
+                    if (!obj.code){
+                        alert(obj.msg)
+                        location.href = "welcome.html"
+                    }else {
+                        alert(obj.msg)
+                        location.href = "welcome.html"
+                    }
+                })
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <span id="usertype"></span>欢迎您！
+        <table border="1" style="width: 800px">
+            <thead>
+            <tr>
+                <td align="center" style="background: lightyellow;font-size: 40px" colspan="8">图书详细信息列表</td>
+            </tr>
+            <tr>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>出版日期</th>
+                <th>页数</th>
+                <th>价格</th>
+                <th>内容摘要</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="tb"></tbody>
+            <tfoot id="tf"></tfoot>
+        </table>
+    </div>
+
+</body>
+</html>

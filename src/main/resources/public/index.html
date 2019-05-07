@@ -3,8 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="/js/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/js/jquery/jquery.form.js"></script>
+    <script src="/js/moment/moment.min.js"></script>
+    <script src="/js/numeral/numeral.min.js"></script>
+    <script src="/js/numeral/chs.min.js"></script>
+    <script src="/js/common/base.js"></script>
+    <script src="/js/common/normal.js"></script>
+    <script>
+        function mySubmit() {
+            $.post("login",$("#ff").serialize(),function (result) {
+                var obj = $.dealJSONObj(result);
+                if (!obj.code) {
+                    var usertype = obj.data.usertype;
+                    location.href = "welcome.html?usertype="+usertype;
+                } else {
+                    $("#sp").html(obj.msg)
+                }
+            })
+        }
+    </script>
 </head>
 <body>
-in your eyes i know love
+<form id="ff" method="post">
+    <div align="center" style="margin-top: 200px">
+        <table border="1">
+            <thead>
+            <th colspan="2">登陆图书管理系统</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td style="background: pink">用户名：</td>
+                <td>
+                    <input type="text" id="name" name="name">
+                </td>
+            </tr>
+            <tr>
+                <td style="background: pink">密码：</td>
+                <td>
+                    <input type="password" id="password" name="password">
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr align="center">
+                <td colspan="2">
+                    <input type="button" value="登陆" onclick="mySubmit()">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span style="color: red" id="sp"></span>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>
+
+
 </body>
 </html>
